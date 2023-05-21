@@ -1,9 +1,12 @@
 import React from "react";
+import { addIcon } from "../assets/images";
 
 function Footer(){
     return(
         <>
-        <h6>Footer Works</h6>
+        <div className='footeralign'>
+            { <img src={ addIcon } className='footerimg' alt="" /> }
+        </div>
         </>
     )
 }

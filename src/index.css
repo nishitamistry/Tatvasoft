@@ -11,3 +11,75 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.link {
+  color: #f14d54;
+  font-size: 14px;
+  font-family: roboto;
+}
+
+.headerimg{
+  margin-left: 60px;
+  height: 60px;
+  width: 210px;
+}
+
+.headeraligntop{
+  height: 92px;
+}
+
+.headeralignbottom{
+  height: 80px;
+  background-color: rgb(229, 235, 233);
+
+}
+.items{
+  display: flex;
+  justify-content: center;
+}
+
+.footeralign{
+  height: 160px;
+  background-color: rgb(229, 235, 233);
+  margin-top: 82px;
+}
+.footerimg{
+  height: 60px;
+  width: 210px;
+  justify-content: center;
+  margin-left: 600px;
+  margin-top: 16px;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined{
+  color: rgb(65,65,65);
+  border-color: rgb(65,65,65);
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained{
+  background-color: #f14d54;
+}
+
+h1{
+  font-size: 32px;
+  font-family: roboto;
+  color: #414141;
+  text-align: center;
+}
+
+h3{
+  font-size: 20px;
+  font-family: roboto;
+  color: #414141;
+}
+
+h6{
+  font-size: 15px;
+  font-family: roboto-light;
+  color: #838383;
+}
+
+.registerbtn{
+  width: 134px;
+  height: 45px;
+}
