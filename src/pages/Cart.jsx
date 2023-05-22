@@ -5,7 +5,7 @@ function Cart(){
     return(
         <>
         <h1>Cart page works</h1>
-        <CartItem />
+        <CartItem />        
         </>
     );
 }

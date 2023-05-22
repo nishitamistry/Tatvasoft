@@ -67,19 +67,49 @@ h1{
   text-align: center;
 }
 
+h2{
+  font-size: 32px;
+  font-family: roboto;
+  color: #414141;
+  margin-top: 50px;
+}
+
 h3{
   font-size: 20px;
   font-family: roboto;
   color: #414141;
+  margin-bottom: 20px;
 }
 
 h6{
   font-size: 15px;
   font-family: roboto-light;
   color: #838383;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .registerbtn{
   width: 134px;
   height: 45px;
+}
+
+table{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#editbtn{
+  color: #80bf32;
+  border-color: #80bf32;
+  width: 80px;
+  height: 30px;
+}
+
+#deletebtn{
+  color: #f14d54;
+  border-color: #f14d54;
+  width: 80px;
+  height: 30px;
 }

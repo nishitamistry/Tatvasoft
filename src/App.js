@@ -16,7 +16,7 @@ function App() {
       <Route path='/product-list' Component={ProductList} />
       <Route path='/product-edit' Component={ProductEdit} />
       <Route path='/cart' Component={Cart} />
-      <Route path='/' Component={Login} />
+      <Route path='/' Component={Login} />s
     </Routes>
     </BrowserRouter>
     </>
