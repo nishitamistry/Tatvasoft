@@ -19,7 +19,7 @@ code {
 }
 
 .headerimg{
-  margin-left: 60px;
+  margin-left: 5%;
   height: 60px;
   width: 210px;
 }
@@ -31,6 +31,7 @@ code {
 .headeralignbottom{
   height: 80px;
   background-color: rgb(229, 235, 233);
+  padding-top: 20px;
 
 }
 .items{
@@ -42,12 +43,14 @@ code {
   height: 160px;
   background-color: rgb(229, 235, 233);
   margin-top: 82px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: block;
 }
 .footerimg{
   height: 60px;
   width: 210px;
-  justify-content: center;
-  margin-left: 600px;
   margin-top: 16px;
 }
 
@@ -112,4 +115,9 @@ table{
   border-color: #f14d54;
   width: 80px;
   height: 30px;
+}
+
+breadcrump-wrapper{
+  font: 18px;
+  font-family: robot;
 }
