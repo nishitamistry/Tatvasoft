@@ -1,76 +1,78 @@
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import React from "react";
+import Footer from "../components/Footer";
+import { Button, TextField } from "@mui/material";
+import Box from '@mui/material/Box';
+import Header from "../components/Header";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { Breadcrumbs } from "@mui/material";
+import { Breadcrumbs, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import Grid from "@mui/material/Grid";
+import MenuItem from "@mui/material/MenuItem";
+import Container from "@mui/material/Container";
+import Select from "@mui/material/Select";
+import {toast} from "react-toastify";
+import authService from "../services/auth.service"
+// import { useState } from "react";
 const initialValues = {
-  firstname: "",
-  lastname: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-  role: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+    // role:"",
+    roleId:0,
 };
-
-// const [roleList, setRoleList] = useState([]);
-//     const formik = useFormik()
-//     useEffect(() => {
-//         if (roleList.length) return;
-//         getRoles();
-//     }, [roleList]);
-
-//     const getRoles = () => {
-//         userService.getAllRoles().then((res) => {
-//             setRoleList(res);
-//         });
-//     };
-
 const registerSchema = Yup.object({
-  firstname: Yup.string().min(2).max(25).required("please enter your first name"),
-  lastname: Yup.string().min(2).max(25).required("please enter your last name"),
-  email: Yup.string().email().required("Please enter your email"),
-  password: Yup.string().min(6).required("Pleaase enter password with min 6 char"),
-  confirmPassword: Yup.string()
-    .required()
-    .oneOf([Yup.ref("password"), null], "Password must match"),
-});
-
-// const onSubmit = (data) => {
-//   alert(JSON.stringify(data))
-//   delete data.confirmPassworrd;
-// };
-
-const Registration = () => {
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues: initialValues,
-    validationSchema:registerSchema,
-    onSubmit: (values) => {
-      console.log("form vals", values);
-      alert("Successfull");
-    },
+    fisrtName: Yup.string().min(2).max(25).required("please enter your first name"),
+    lastName: Yup.string().min(2).max(25).required("please enter your last name"),
+    email: Yup.string().email().required("Please enter your email"),
+    password: Yup.string().min(6).required("Please enter password with min 6 char"),
+    confirmpassword: Yup.string().required()
+      .oneOf([Yup.ref("password"), null], "Password must match"),
+    // role:Yup.string().required("please enter role"),
   });
+    
 
 
-  return (
-    <>
-    <Header />
-    <Box display="flex" justifyContent="center" marginTop="50px">
+function Register() {
+//   const [roleList,setRoleList]=useState("");
+//   // const navigate=useNavigate();
+//  const getAllRoles=()=>{
+//   userService.getAllRoles().then((res)=>{
+//     setRoleList(res);
+//   });
+// };
+    //directly destructure the formik in values, errors...  
+    const { values, errors, touched, handleBlur, handleChange,handleSubmit} =
+        useFormik({
+            initialValues,
+             registerSchema,
+            onSubmit: (values) => {
+              console.log(values);
+              delete values.confirmpassword;
+              delete values.role;
+              authService.create(values).then((res)=>{
+                // navigate("/login");
+                console.log(res);
+                toast.success("sucessfully registered");
+              });
+            },
+        });
+
+        
+      console.log( errors );
+    
+    return (
+        <>
+            <Header />
+            <Box display="flex" justifyContent="center" marginTop="50px">
                 <Breadcrumbs separator="›" aria-label="breadcrumb" className="breadcrump-wrapper" >
                     <Link to="/login" title="Home" style={{ textDecoration: "none", color: "#414141" }}>Home</Link>
                     <Typography color="#f14d54">Create an Account</Typography>
                 </Breadcrumbs>
             </Box>
-    <Container maxWidth="lg">
+            <Container maxWidth="lg">
       <form onSubmit={handleSubmit}>
         <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           <Typography
@@ -99,12 +101,12 @@ const Registration = () => {
                   type="text"
                   size="small"
                   fullWidth
-                  name="firstname"
-                  value={values.firstname}
+                  name="firstName"
+                  value={values.firstName}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  helperText={errors.firstname && touched.firstname ? errors.firstname :null}
-                  error={errors.firstname && touched.firstname}
+                  helpertext ={errors.firstName && touched.firstName ? errors.firstName :null}
+                  error={errors.firstName && touched.firstName}
                 />
               
               </Grid>
@@ -116,12 +118,12 @@ const Registration = () => {
                   type="text"
                   size="small"
                   fullWidth
-                  name="lastname"
-                  value={values.lastname}
+                  name="lastName"
+                  value={values.lastName}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  helperText={errors.lastname && touched.lastname ? errors.lastname :null}
-                  error={errors.lastname && touched.lastname}
+                  helperText={errors.lastName && touched.lastName ? errors.lastName :null}
+                  error={errors.lastName && touched.lastName}
                 />
               </Grid>
               <Grid item xs={6}>
@@ -150,13 +152,17 @@ const Registration = () => {
                   onBlur={handleBlur}
                   name="role"
                   size="small"
+                  helperText={errors.role && touched.role ? errors.role :null}
+                  error={errors.role && touched.role}
                   fullWidth
                  displayEmpty
                 >
                   <MenuItem value="Buyer" defaultChecked>Buyer</MenuItem>
                   <MenuItem value="Seller">Seller</MenuItem>
                 </Select>
-                
+                {errors.role && touched.role ? (
+                      <p className="form-error">{errors.role}</p>
+                    ) : null}
                 
               </Grid>
             </Grid>
@@ -192,12 +198,12 @@ const Registration = () => {
                   type="password"
                   size="small"
                   fullWidth
-                  name="confirmPassword"
-                  value={values.confirmPassword}
+                  name="confirmpassword"
+                  value={values.confirmpassword}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  helperText={errors.confirmPassword && touched.confirmPassword ? errors.confirmPassword :null}
-                  error={errors.confirmPassword && touched.confirmPassword}
+                  helperText={errors.confirmpassword && touched.confirmpassword ? errors.confirmpassword :null}
+                  error={errors.confirmpassword && touched.confirmpassword}
                 />
               </Grid>
             </Grid>
@@ -215,9 +221,9 @@ const Registration = () => {
         </Box>
       </form>
     </Container>
-    <Footer />
-    </>
-  );
-};
+            <Footer />
+        </>
+    );
+}
 
-export default Registration;
+export default Register;

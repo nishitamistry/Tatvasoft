@@ -15,6 +15,8 @@ export default function FreeSolo() {
             <TextField
               {...params}
               label="What are you looking for..."
+              size="small"
+              width="422px"
               InputProps={{
                 ...params.InputProps,
                 type: 'search',

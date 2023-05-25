@@ -5,20 +5,24 @@ import ProductList from './pages/ProductList';
 import Register from './pages/Register';
 import ProductEdit from './pages/ProductEdit';
 import Cart from './pages/Cart';
+// import { ThemeProvider, createTheme } from '@mui/material';
+
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/login' Component={Login} />
-      <Route path='/register' Component={Register} />
-      <Route path='/product-list' Component={ProductList} />
-      <Route path='/product-edit' Component={ProductEdit} />
-      <Route path='/cart' Component={Cart} />
-      <Route path='/' Component={Login} />s
-    </Routes>
-    </BrowserRouter>
+      {/* <ThemeProvider> */}
+        <BrowserRouter>
+          <Routes>
+            <Route path='/login' Component={Login} />
+            <Route path='/register' Component={Register} />
+            <Route path='/product-list' Component={ProductList} />
+            <Route path='/product-edit' Component={ProductEdit} />
+            <Route path='/cart' Component={Cart} />
+            <Route path='/' Component={Login} />s
+          </Routes>
+        </BrowserRouter>
+      {/* </ThemeProvider> */}
     </>
   );
 }

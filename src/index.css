@@ -12,14 +12,18 @@ code {
     monospace;
 }
 
-.link {
-  color: #f14d54;
-  font-size: 14px;
+*{
   font-family: roboto;
 }
 
+.link {
+  color: #f14d54;
+  font-size: 14px;
+  text-decoration: none;
+}
+
 .headerimg{
-  margin-left: 5%;
+  /* margin-left: 80px; */
   height: 60px;
   width: 210px;
 }
@@ -65,21 +69,18 @@ code {
 
 h1{
   font-size: 32px;
-  font-family: roboto;
   color: #414141;
   text-align: center;
 }
 
 h2{
   font-size: 32px;
-  font-family: roboto;
   color: #414141;
   margin-top: 50px;
 }
 
 h3{
   font-size: 20px;
-  font-family: roboto;
   color: #414141;
   margin-bottom: 20px;
 }
@@ -119,5 +120,4 @@ table{
 
 breadcrump-wrapper{
   font: 18px;
-  font-family: robot;
 }
