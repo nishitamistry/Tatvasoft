@@ -1,4 +1,5 @@
 import React from "react";
+
 import Footer from "../components/Footer";
 import { Button, TextField } from "@mui/material";
 import Box from '@mui/material/Box';
@@ -12,7 +13,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Container from "@mui/material/Container";
 import Select from "@mui/material/Select";
 import {toast} from "react-toastify";
-import authService from "../services/auth.service"
+import authService from "../services/auth.service";
+// import userService from "./service/user.service";
 // import { useState } from "react";
 const initialValues = {
     firstName: "",
@@ -24,7 +26,7 @@ const initialValues = {
     roleId:0,
 };
 const registerSchema = Yup.object({
-    fisrtName: Yup.string().min(2).max(25).required("please enter your first name"),
+    firstName: Yup.string().min(2).max(25).required("please enter your first name"),
     lastName: Yup.string().min(2).max(25).required("please enter your last name"),
     email: Yup.string().email().required("Please enter your email"),
     password: Yup.string().min(6).required("Please enter password with min 6 char"),
@@ -48,7 +50,7 @@ function Register() {
         useFormik({
             initialValues,
              registerSchema,
-            onSubmit: (values) => {
+            onSubmit: (values,action) => {
               console.log(values);
               delete values.confirmpassword;
               delete values.role;
@@ -56,6 +58,7 @@ function Register() {
                 // navigate("/login");
                 console.log(res);
                 toast.success("sucessfully registered");
+                action.resetForm();
               });
             },
         });
@@ -85,7 +88,7 @@ function Register() {
             Login or Create An Account
           </Typography>
           <Box>
-            <Typography variant="h6" gutterBottom style={{ fontWeight: 600 }}>
+            <Typography variant="h6" marginTop="50px" gutterBottom style={{ fontWeight: 600 }}>
               Personal Information
             </Typography>
             <hr />
