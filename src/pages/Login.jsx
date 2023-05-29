@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import { Button, List, ListItem, ListItemIcon, ListItemText, TextField } from "@mui/material";
 import Box from '@mui/material/Box';
 import { Breadcrumbs, Typography } from "@mui/material";
@@ -25,16 +23,20 @@ function Login() {
         password: Yup.string().min(6).required("Please enter password with min 6 char"),
     });
 
-    const onSubmit = (values) => {
+    const onSubmit = (values, action) => {
         // console.log(values);
-        authService.login(values).then((res)=>{
-            toast.success("sucessfully logined");
+        authService.login(values).then((res) => {
+            toast.success("Login successfully.");
             console.log(res);
         })
+        .catch(() => {
+            toast.error();
+        })
+        action.resetForm();
     };
+
     return (
         <>
-            <Header />
             <Box display="flex" justifyContent="center" marginTop="50px">
                 <Breadcrumbs separator="›" aria-label="breadcrumb" className="breadcrump-wrapper" >
                     <Link to="/login" title="Home" style={{ textDecoration: "none", color: "#414141" }}>Home</Link>
@@ -148,7 +150,6 @@ function Login() {
                                                 variant="contained"
                                                 color="error"
                                                 sx={{ textTransform: "capitalize", backgroundColor: "#f14d54", width: "100px", marginTop: "auto" }}
-
                                             >
                                                 Login
                                             </Button>
@@ -157,16 +158,9 @@ function Login() {
                                 )}
                             </Formik>
                         </Grid>
-
-
                     </Grid>
-
-
-
-
                 </Grid>
             </Container >
-            <Footer />
         </>
     );
 }

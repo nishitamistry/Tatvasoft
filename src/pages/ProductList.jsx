@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 function createData(name, calories, fat, carbs, protein) {
@@ -18,7 +16,6 @@ const rows = [
 function ProductList() {
     return (
         <>
-            <Header />
             <h2>Product Page</h2>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -52,7 +49,6 @@ function ProductList() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Footer />
         </>
     );
 }

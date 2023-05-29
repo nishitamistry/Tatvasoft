@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-*{
+* {
   font-family: roboto;
 }
 
@@ -22,28 +22,37 @@ code {
   text-decoration: none;
 }
 
-.headerimg{
-  /* margin-left: 80px; */
-  height: 60px;
-  width: 210px;
+.headerimg {
+  border: 0;
+  display: inline-block;
+  height: 45px;
+  width: 195px;
+  vertical-align: middle;
 }
 
-.headeraligntop{
+.header-img-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headeraligntop {
   height: 92px;
 }
 
-.headeralignbottom{
+.headeralignbottom {
   height: 80px;
   background-color: rgb(229, 235, 233);
   padding-top: 20px;
 
 }
-.items{
+
+.items {
   display: flex;
   justify-content: center;
 }
 
-.footeralign{
+.footeralign {
   height: 160px;
   background-color: rgb(229, 235, 233);
   margin-top: 82px;
@@ -52,40 +61,41 @@ code {
   text-align: center;
   display: block;
 }
-.footerimg{
-  height: 60px;
-  width: 210px;
-  margin-top: 16px;
+
+.footerimg {
+  height: 45px;
+  width: 195px;
+  margin-top: 25px;
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-outlined{
-  color: rgb(65,65,65);
-  border-color: rgb(65,65,65);
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined {
+  color: rgb(65, 65, 65);
+  border-color: rgb(65, 65, 65);
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained{
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
   background-color: #f14d54;
 }
 
-h1{
+h1 {
   font-size: 32px;
   color: #414141;
   text-align: center;
 }
 
-h2{
+h2 {
   font-size: 32px;
   color: #414141;
   margin-top: 50px;
 }
 
-h3{
+h3 {
   font-size: 20px;
   color: #414141;
   margin-bottom: 20px;
 }
 
-h6{
+h6 {
   font-size: 15px;
   font-family: roboto-light;
   color: #414141;
@@ -93,31 +103,120 @@ h6{
   margin-bottom: 20px;
 }
 
-.registerbtn{
+.registerbtn {
   width: 134px;
   height: 45px;
 }
 
-table{
+table {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
-#editbtn{
+#editbtn {
   color: #80bf32;
   border-color: #80bf32;
   width: 80px;
   height: 30px;
 }
 
-#deletebtn{
+#deletebtn {
   color: #f14d54;
   border-color: #f14d54;
   width: 80px;
   height: 30px;
 }
 
-breadcrump-wrapper{
+breadcrump-wrapper {
   font: 18px;
+}
+
+.copyright-text {
+  font-size: 13px;
+  color: #929292;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-top: 15px;
+}
+
+.top-header {
+  padding: 6px 0;
+  text-align: center;
+  background-color: #f14d54;
+  display: block;
+  max-width: 100%;
+}
+
+.search-overlay {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+ 
+}
+
+.search-container {
+  position: relative;
+}
+
+.text-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#text {
+  width: 422px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.product-listing {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 422px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  z-index: 9999;
+}
+
+.no-product {
+  color: red;
+}
+
+.related-product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.inner-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+
+.title {
+  font-weight: bold;
+}
+
+.price {
+  color: green;
+}
+.inner-block {
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.inner-block:hover {
+  background-color: #f2f2f2;
 }

@@ -1,1 +1,1 @@
-export const addIcon = require('./tatvasoft.png');
+export const addIcon = require('./tatvasoft.svg').default;

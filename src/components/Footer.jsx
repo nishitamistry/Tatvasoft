@@ -6,6 +6,7 @@ function Footer(){
         <>
         <div className='footeralign'>
             { <img src={ addIcon } className='footerimg' alt="" /> }
+            <p className="copyright-text">@ 2015 Tatvasoft.com. All rights reserved.</p>
         </div>
         </>
     )

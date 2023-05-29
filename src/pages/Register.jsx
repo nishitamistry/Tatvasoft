@@ -1,9 +1,6 @@
 import React from "react";
-
-import Footer from "../components/Footer";
 import { Button, TextField } from "@mui/material";
 import Box from '@mui/material/Box';
-import Header from "../components/Header";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Breadcrumbs, Typography } from "@mui/material";
@@ -68,7 +65,6 @@ function Register() {
     
     return (
         <>
-            <Header />
             <Box display="flex" justifyContent="center" marginTop="50px">
                 <Breadcrumbs separator="›" aria-label="breadcrumb" className="breadcrump-wrapper" >
                     <Link to="/login" title="Home" style={{ textDecoration: "none", color: "#414141" }}>Home</Link>
@@ -224,7 +220,6 @@ function Register() {
         </Box>
       </form>
     </Container>
-            <Footer />
         </>
     );
 }
