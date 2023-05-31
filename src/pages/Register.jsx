@@ -22,6 +22,8 @@ const initialValues = {
     // role:"",
     roleId:0,
 };
+
+
 const registerSchema = Yup.object({
     firstName: Yup.string().min(2).max(25).required("please enter your first name"),
     lastName: Yup.string().min(2).max(25).required("please enter your last name"),
@@ -35,14 +37,22 @@ const registerSchema = Yup.object({
 
 
 function Register() {
+  // const  roleList = [
+  //   { id: 2, name:"buyer" },
+  //   { id: 3, name: "seller" },
+  // ];
 //   const [roleList,setRoleList]=useState("");
 //   // const navigate=useNavigate();
-//  const getAllRoles=()=>{
+
+// useEffect(() => {
+//   if (roleList.length) return;
+// }, [roleList]);
+
+//  const getRoles=()=>{
 //   userService.getAllRoles().then((res)=>{
 //     setRoleList(res);
 //   });
 // };
-    //directly destructure the formik in values, errors...  
     const { values, errors, touched, handleBlur, handleChange,handleSubmit} =
         useFormik({
             initialValues,

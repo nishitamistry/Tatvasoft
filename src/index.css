@@ -162,11 +162,13 @@ breadcrump-wrapper {
 
 .search-container {
   position: relative;
+
 }
 
 .text-wrapper {
   display: flex;
   align-items: center;
+  background-color: white;
 }
 
 #text {
@@ -196,7 +198,7 @@ breadcrump-wrapper {
 .related-product-list {
   list-style: none;
   padding: 0;
-}
+} */
 
 .inner-block {
   display: flex;

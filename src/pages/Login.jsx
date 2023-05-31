@@ -10,9 +10,13 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import authService from "../services/auth.service";
 import { toast } from "react-toastify";
-
+import { useAuthContext } from "../context/auth.context";
 
 function Login() {
+    const naviagte = useNavigate();
+
+    const authContext = useAuthContext();
+
     const initialValues = {
         email: "",
         password: "",
@@ -27,6 +31,7 @@ function Login() {
         // console.log(values);
         authService.login(values).then((res) => {
             toast.success("Login successfully.");
+            authContext.setUser(res);
             console.log(res);
         })
         .catch(() => {

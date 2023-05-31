@@ -71,7 +71,6 @@ function SearchBar() {
 
   return (
     <div>
-
       <div className="search-overlay" onClick={() => {
         setOpenSearchResult(false);
         document.body.classList.remove("search-results-open");
