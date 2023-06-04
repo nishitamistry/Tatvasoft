@@ -34,6 +34,8 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 20px;
+
 }
 
 .headeraligntop {
@@ -75,6 +77,63 @@ code {
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-contained {
   background-color: #f14d54;
+}
+.btn-wrapper
+{
+  display: flex;
+  text-align: right;
+  margin-bottom: 10px;
+  justify-content: flex-end;
+  margin-right: 103px;
+  
+}
+
+container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.file-upload-btn {
+  display: flex;
+  align-items: center;
+}
+
+.file-input {
+  display: none;
+}
+
+.uploaded-file-name {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.uploaded-file-name img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
 h1 {
@@ -198,7 +257,7 @@ breadcrump-wrapper {
 .related-product-list {
   list-style: none;
   padding: 0;
-} */
+} 
 
 .inner-block {
   display: flex;
@@ -325,6 +384,9 @@ breadcrump-wrapper {
   position: absolute;
   border-radius: inherit;
   pointer-events: none;
+}
+.right button{
+  margin-left: 20px;
 }
 
 @media (max-width: 960px) {
