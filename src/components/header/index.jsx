@@ -14,12 +14,12 @@ import { RoutePaths } from "../../utils/enum";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import bookService from "../../service/book.service";
-// import { useCartContext } from "../../context/cart";
+import { useCartContext } from "../../context/cart";
 
 const Header = () => {
   const classes = headerStyle();
   const authContext = useAuthContext();
-  // const cartContext = useCartContext();
+  const cartContext = useCartContext();
   // const [open, setOpen] = useState(false);
   const open = false;
   const [query, setquery] = useState("");
@@ -42,7 +42,7 @@ const Header = () => {
 
   const logOut = () => {
     authContext.signOut();
-    // cartContext.emptyCart();
+    cartContext.emptyCart();
   };
 
   const searchBook = async () => {
@@ -56,21 +56,21 @@ const Header = () => {
     setOpenSearchResult(true);
   };
 
-  // const addToCart = (book) => {
-  //   if (!authContext.user.id) {
-  //     navigate(RoutePaths.Login);
-  //     toast.error("Please login before adding books to cart");
-  //   } else {
-  //     Shared.addToCart(book, authContext.user.id).then((res) => {
-  //       if (res.error) {
-  //         toast.error(res.error);
-  //       } else {
-  //         toast.success("Item added in cart");
-  //         cartContext.updateCart();
-  //       }
-  //     });
-  //   }
-  // };
+  const addToCart = (book) => {
+    if (!authContext.user.id) {
+      navigate(RoutePaths.Login);
+      toast.error("Please login before adding books to cart");
+    } else {
+      Shared.addToCart(book, authContext.user.id).then((res) => {
+        if (res.error) {
+          toast.error(res.error);
+        } else {
+          toast.success("Item added in cart");
+          cartContext.updateCart();
+        }
+      });
+    }
+  };
 
   return (
     <div className={classes.headerWrapper}>
@@ -116,7 +116,7 @@ const Header = () => {
                     <ListItem className="cart-link">
                       <Link to="/cart" title="Cart">
                         <img src={cartIcon} alt="cart.png" />
-                        {/* <span>{cartContext.cartData.length}</span> */}
+                        <span>{cartContext.cartData.length}</span>
                         Cart
                       </Link>
                     </ListItem>
@@ -180,7 +180,7 @@ const Header = () => {
                                       <span className="price">
                                         {item.price}
                                       </span>
-                                      <Link onClick={() => {}}>
+                                      <Link onClick={() => addToCart(item)}>
                                         Add to cart
                                       </Link>
                                     </div>

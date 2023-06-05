@@ -2,15 +2,7 @@ import React, { useEffect, useState } from "react";
 import { editUserStyle } from "./style";
 import * as Yup from "yup";
 import { materialCommonStyles } from "../../../utils/materialCommonStyles";
-import {
-  Typography,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
-} from "@material-ui/core";
+import { Typography, TextField, FormControl,InputLabel, Select, MenuItem, Button, } from "@material-ui/core";
 import { useNavigate, useParams } from "react-router-dom";
 import userService from "../../../service/user.service";
 import { Formik } from "formik";
